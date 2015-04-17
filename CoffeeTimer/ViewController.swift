@@ -10,9 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var progress: UIProgressView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        println("viewDidLoad")
+        view.backgroundColor = UIColor.orangeColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +25,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func buttonWasPressed(sender: AnyObject) {
+        println("buttonWasPressed",sender)
+        let date = NSDate()
+        
+        label.text = "Button was pressed at \(date)"
+    }
 
+    @IBAction func sliderValueChanged(sender: AnyObject) {
+        self.progress.progress = self.slider.value
+    }
 }
 
