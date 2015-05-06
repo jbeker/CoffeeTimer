@@ -13,6 +13,7 @@
 		55AC5C611AE13BC1007089BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55AC5C601AE13BC1007089BD /* Images.xcassets */; };
 		55AC5C641AE13BC1007089BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55AC5C621AE13BC1007089BD /* LaunchScreen.xib */; };
 		55AC5C701AE13BC1007089BD /* CoffeeTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AC5C6F1AE13BC1007089BD /* CoffeeTimerTests.swift */; };
+		55DB43391AF8052300315C59 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB43381AF8052300315C59 /* TimerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		55AC5C691AE13BC1007089BD /* CoffeeTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeeTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55AC5C6E1AE13BC1007089BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55AC5C6F1AE13BC1007089BD /* CoffeeTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTimerTests.swift; sourceTree = "<group>"; };
+		55DB43381AF8052300315C59 /* TimerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				55AC5C591AE13BC1007089BD /* AppDelegate.swift */,
 				55AC5C5B1AE13BC1007089BD /* ViewController.swift */,
+				55DB43381AF8052300315C59 /* TimerModel.swift */,
 				55AC5C5D1AE13BC1007089BD /* Main.storyboard */,
 				55AC5C601AE13BC1007089BD /* Images.xcassets */,
 				55AC5C621AE13BC1007089BD /* LaunchScreen.xib */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55DB43391AF8052300315C59 /* TimerModel.swift in Sources */,
 				55AC5C5C1AE13BC1007089BD /* ViewController.swift in Sources */,
 				55AC5C5A1AE13BC1007089BD /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +413,7 @@
 				55AC5C751AE13BC1007089BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		55AC5C761AE13BC1007089BD /* Build configuration list for PBXNativeTarget "CoffeeTimerTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				55AC5C781AE13BC1007089BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

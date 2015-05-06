@@ -10,30 +10,40 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var progress: UIProgressView!
+    var timerModel: TimerModel! {
+        willSet(newModel) {
+            println("About to change model to \(newModel)")
+        }
+        didSet {
+            updateUI()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         println("viewDidLoad")
-        view.backgroundColor = UIColor.orangeColor()
+        title = "Root"
+        setupModels()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func buttonWasPressed(sender: AnyObject) {
-        println("buttonWasPressed",sender)
-        let date = NSDate()
-        
-        label.text = "Button was pressed at \(date)"
+    
+    override func shouldAutorotate() -> Bool {
+        return false
     }
-
-    @IBAction func sliderValueChanged(sender: AnyObject) {
-        self.progress.progress = self.slider.value
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
+    
+    func setupModels() {
+        self.timerModel = TimerModel(coffeeName: "Columbian", duration: 240)
+    }
+    
+    func updateUI() {
     }
 }
 
