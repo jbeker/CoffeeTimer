@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55510FBA1B03AB0800A96938 /* TimerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55510FB91B03AB0800A96938 /* TimerDetailViewController.swift */; };
 		55AC5C5A1AE13BC1007089BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AC5C591AE13BC1007089BD /* AppDelegate.swift */; };
 		55AC5C5C1AE13BC1007089BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AC5C5B1AE13BC1007089BD /* ViewController.swift */; };
 		55AC5C5F1AE13BC1007089BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55AC5C5D1AE13BC1007089BD /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		55AC5C641AE13BC1007089BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55AC5C621AE13BC1007089BD /* LaunchScreen.xib */; };
 		55AC5C701AE13BC1007089BD /* CoffeeTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AC5C6F1AE13BC1007089BD /* CoffeeTimerTests.swift */; };
 		55DB43391AF8052300315C59 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB43381AF8052300315C59 /* TimerModel.swift */; };
+		55DFF5F51B061EA300A1572D /* TimerEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFF5F41B061EA300A1572D /* TimerEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55510FB91B03AB0800A96938 /* TimerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDetailViewController.swift; sourceTree = "<group>"; };
 		55AC5C541AE13BC1007089BD /* CoffeeTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55AC5C581AE13BC1007089BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55AC5C591AE13BC1007089BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		55AC5C6E1AE13BC1007089BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55AC5C6F1AE13BC1007089BD /* CoffeeTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTimerTests.swift; sourceTree = "<group>"; };
 		55DB43381AF8052300315C59 /* TimerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		55DFF5F41B061EA300A1572D /* TimerEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerEditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				55AC5C591AE13BC1007089BD /* AppDelegate.swift */,
-				55AC5C5B1AE13BC1007089BD /* ViewController.swift */,
+				55DFF5F31B061E8600A1572D /* ViewControllers */,
 				55DB43381AF8052300315C59 /* TimerModel.swift */,
 				55AC5C5D1AE13BC1007089BD /* Main.storyboard */,
 				55AC5C601AE13BC1007089BD /* Images.xcassets */,
@@ -113,6 +117,16 @@
 				55AC5C6E1AE13BC1007089BD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		55DFF5F31B061E8600A1572D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				55AC5C5B1AE13BC1007089BD /* ViewController.swift */,
+				55510FB91B03AB0800A96938 /* TimerDetailViewController.swift */,
+				55DFF5F41B061EA300A1572D /* TimerEditViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +230,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				55DB43391AF8052300315C59 /* TimerModel.swift in Sources */,
+				55DFF5F51B061EA300A1572D /* TimerEditViewController.swift in Sources */,
+				55510FBA1B03AB0800A96938 /* TimerDetailViewController.swift in Sources */,
 				55AC5C5C1AE13BC1007089BD /* ViewController.swift in Sources */,
 				55AC5C5A1AE13BC1007089BD /* AppDelegate.swift in Sources */,
 			);

@@ -45,5 +45,30 @@ class ViewController: UIViewController {
     
     func updateUI() {
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        println("Preparing for segue with identifier:\(segue.identifier)")
+        
+        
+        if segue.identifier == "pushDetail" {
+            let dest = segue.destinationViewController as? TimerDetailViewController
+            
+            if (dest != nil) {
+                dest?.timerModel = timerModel
+            } else {
+                println("WTH?!")
+            }
+        } else if segue.identifier == "editDetail" {
+            let destNav = segue.destinationViewController as? UINavigationController
+            let dest = destNav?.topViewController as? TimerEditViewController
+            
+            if (dest != nil) {
+                dest?.timerModel = timerModel
+            } else {
+                println("WTH?!")
+            }
+        }
+    }
+
 }
 
