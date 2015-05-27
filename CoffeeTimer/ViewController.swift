@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     }
     
     func setupModels() {
-        self.timerModel = TimerModel(coffeeName: "Columbian", duration: 240)
+        self.timerModel = TimerModel(name: "Columbian", duration: 240)
     }
     
     func updateUI() {

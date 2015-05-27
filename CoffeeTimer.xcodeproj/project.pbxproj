@@ -14,6 +14,7 @@
 		55AC5C611AE13BC1007089BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55AC5C601AE13BC1007089BD /* Images.xcassets */; };
 		55AC5C641AE13BC1007089BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55AC5C621AE13BC1007089BD /* LaunchScreen.xib */; };
 		55AC5C701AE13BC1007089BD /* CoffeeTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AC5C6F1AE13BC1007089BD /* CoffeeTimerTests.swift */; };
+		55CD03CB1B15ED5200E4684F /* TimerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD03CA1B15ED5200E4684F /* TimerListTableViewController.swift */; };
 		55DB43391AF8052300315C59 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB43381AF8052300315C59 /* TimerModel.swift */; };
 		55DFF5F51B061EA300A1572D /* TimerEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFF5F41B061EA300A1572D /* TimerEditViewController.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		55AC5C691AE13BC1007089BD /* CoffeeTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeeTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55AC5C6E1AE13BC1007089BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55AC5C6F1AE13BC1007089BD /* CoffeeTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTimerTests.swift; sourceTree = "<group>"; };
+		55CD03CA1B15ED5200E4684F /* TimerListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerListTableViewController.swift; sourceTree = "<group>"; };
 		55DB43381AF8052300315C59 /* TimerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		55DFF5F41B061EA300A1572D /* TimerEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerEditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +127,7 @@
 				55AC5C5B1AE13BC1007089BD /* ViewController.swift */,
 				55510FB91B03AB0800A96938 /* TimerDetailViewController.swift */,
 				55DFF5F41B061EA300A1572D /* TimerEditViewController.swift */,
+				55CD03CA1B15ED5200E4684F /* TimerListTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				55510FBA1B03AB0800A96938 /* TimerDetailViewController.swift in Sources */,
 				55AC5C5C1AE13BC1007089BD /* ViewController.swift in Sources */,
 				55AC5C5A1AE13BC1007089BD /* AppDelegate.swift in Sources */,
+				55CD03CB1B15ED5200E4684F /* TimerListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

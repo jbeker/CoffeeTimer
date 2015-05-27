@@ -9,17 +9,17 @@
 import UIKit
 
 class TimerModel: NSObject {
-    var coffeeName = ""
+    var name = ""
     var duration = 0
 
-    init(coffeeName: String, duration: Int)
+    init(name: String, duration: Int)
     {
-        self.coffeeName = coffeeName
+        self.name = name
         self.duration = duration
         super.init()
     }
     
     override var description: String {
-        return "TimerModel(\(coffeeName))"
+        return "TimerModel(\(name))"
     }
 }
