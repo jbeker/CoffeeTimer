@@ -8,9 +8,17 @@
 
 import UIKit
 
+@objc protocol TimerEditViewControllerDelegate {
+    func timerEditViewControllerDidCancel(viewController: TimerEditViewController)
+    func timerEditViewControllerDidSave(viewController: TimerEditViewController)
+}
+
 class TimerEditViewController: UIViewController {
 
     var timerModel: TimerModel!
+    var creatingNewTimer = false
+    var delegate: TimerEditViewControllerDelegate!
+    
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var minutesLabel: UILabel!
     @IBOutlet weak var minutesSlider: UISlider!
@@ -35,12 +43,15 @@ class TimerEditViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
-        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
         timerModel.name = nameField.text
         timerModel.duration = Int(minutesSlider.value)*60 + Int(secondsSlider.value)
+        delegate?.timerEditViewControllerDidSave(self)
+        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+
     }
     
     @IBAction func cancelButtonPressed(sender: AnyObject) {
+        delegate?.timerEditViewControllerDidCancel(self)
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
 

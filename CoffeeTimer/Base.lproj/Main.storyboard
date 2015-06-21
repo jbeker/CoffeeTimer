@@ -44,7 +44,7 @@
                                     <action selector="sliderValueChanged:" destination="kTD-6B-ER9" eventType="valueChanged" id="YLr-gQ-FjZ"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="10" maxValue="59" translatesAutoresizingMaskIntoConstraints="NO" id="qgg-YM-5hT">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="10" maxValue="59" translatesAutoresizingMaskIntoConstraints="NO" id="qgg-YM-5hT">
                                 <rect key="frame" x="32" y="206" width="536" height="31"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="kTD-6B-ER9" eventType="valueChanged" id="82k-bj-2X8"/>
@@ -110,7 +110,7 @@
         <scene sceneID="5mC-p8-Mha">
             <objects>
                 <tableViewController id="Uc9-UN-cGM" customClass="TimerListTableViewController" customModule="CoffeeTimer" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SZg-V2-pn1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SZg-V2-pn1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -128,6 +128,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="op3-ui-fBo" kind="show" identifier="pushDetail" id="6dl-2a-AFa"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -135,7 +138,17 @@
                             <outlet property="delegate" destination="Uc9-UN-cGM" id="0gW-sL-Dfv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Ap3-0y-RMM"/>
+                    <navigationItem key="navigationItem" id="Ap3-0y-RMM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cqe-5n-iZw">
+                            <connections>
+                                <segue destination="YwM-a4-uEb" kind="presentation" identifier="newTimer" id="0hj-wC-tc0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="YwM-a4-uEb" kind="presentation" identifier="editDetail" id="eR4-O6-aln"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rg-LT-jDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,7 +166,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKN-EI-Cxe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKN-EI-Cxe">
                                 <rect key="frame" x="34" y="72" width="532" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -194,4 +207,7 @@
             <point key="canvasLocation" x="362" y="399"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0hj-wC-tc0"/>
+    </inferredMetricsTieBreakers>
 </document>

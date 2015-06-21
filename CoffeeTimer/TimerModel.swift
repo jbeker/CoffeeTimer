@@ -8,11 +8,20 @@
 
 import UIKit
 
+
+
 class TimerModel: NSObject {
+    
+    enum TimerType {
+        case Coffee
+        case Tea
+    }
+    
     var name = ""
     var duration = 0
+    var type = TimerType.Coffee
 
-    init(name: String, duration: Int)
+    init(name: String, duration: Int, type: TimerType)
     {
         self.name = name
         self.duration = duration
