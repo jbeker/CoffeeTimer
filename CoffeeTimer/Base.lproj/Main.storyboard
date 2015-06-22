@@ -44,7 +44,7 @@
                                     <action selector="sliderValueChanged:" destination="kTD-6B-ER9" eventType="valueChanged" id="YLr-gQ-FjZ"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="10" maxValue="59" translatesAutoresizingMaskIntoConstraints="NO" id="qgg-YM-5hT">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="10" maxValue="59" translatesAutoresizingMaskIntoConstraints="NO" id="qgg-YM-5hT">
                                 <rect key="frame" x="32" y="206" width="536" height="31"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="kTD-6B-ER9" eventType="valueChanged" id="82k-bj-2X8"/>
@@ -62,14 +62,24 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JcZ-k4-5mf">
+                                <rect key="frame" x="35" y="244" width="532" height="29"/>
+                                <segments>
+                                    <segment title="Cofee"/>
+                                    <segment title="Tea"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="JcZ-k4-5mf" secondAttribute="centerX" constant="-0.5" id="0Ed-tc-c1u"/>
                             <constraint firstItem="7Xu-On-Ent" firstAttribute="leading" secondItem="Egg-Qt-lpT" secondAttribute="leading" id="BZJ-vg-8hz"/>
                             <constraint firstItem="qgg-YM-5hT" firstAttribute="top" secondItem="oWb-lJ-bN2" secondAttribute="bottom" constant="8" symbolic="YES" id="JAX-N4-mE6"/>
                             <constraint firstItem="izx-uq-LrJ" firstAttribute="top" secondItem="Egg-Qt-lpT" secondAttribute="bottom" constant="8" symbolic="YES" id="KrY-I1-XIq"/>
                             <constraint firstItem="qgg-YM-5hT" firstAttribute="width" secondItem="izx-uq-LrJ" secondAttribute="width" id="QOK-Zd-Pal"/>
+                            <constraint firstItem="JcZ-k4-5mf" firstAttribute="top" secondItem="qgg-YM-5hT" secondAttribute="bottom" constant="8" id="R90-wA-1Wl"/>
                             <constraint firstItem="7Xu-On-Ent" firstAttribute="width" secondItem="Egg-Qt-lpT" secondAttribute="width" id="Taa-Rc-orY"/>
+                            <constraint firstItem="qgg-YM-5hT" firstAttribute="width" secondItem="JcZ-k4-5mf" secondAttribute="width" id="cWe-3I-WDT"/>
                             <constraint firstItem="oWb-lJ-bN2" firstAttribute="top" secondItem="izx-uq-LrJ" secondAttribute="bottom" constant="8" symbolic="YES" id="dd9-JQ-DaM"/>
                             <constraint firstItem="izx-uq-LrJ" firstAttribute="leading" secondItem="Egg-Qt-lpT" secondAttribute="leading" id="deJ-Ez-Diz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Xu-On-Ent" secondAttribute="trailing" constant="18" id="ktz-Eu-Zce"/>
@@ -100,6 +110,7 @@
                         <outlet property="nameField" destination="7Xu-On-Ent" id="YvM-lh-AsV"/>
                         <outlet property="secondsLabel" destination="oWb-lJ-bN2" id="5aC-T9-w3f"/>
                         <outlet property="secondsSlider" destination="qgg-YM-5hT" id="bKW-c0-qGG"/>
+                        <outlet property="typeSegmentControl" destination="JcZ-k4-5mf" id="LYT-NG-nm9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWx-57-Arp" userLabel="First Responder" sceneMemberID="firstResponder"/>

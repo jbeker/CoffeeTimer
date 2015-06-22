@@ -24,6 +24,7 @@ class TimerEditViewController: UIViewController {
     @IBOutlet weak var minutesSlider: UISlider!
     @IBOutlet weak var secondsLabel: UILabel!
     @IBOutlet weak var secondsSlider: UISlider!
+    @IBOutlet weak var typeSegmentControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,14 @@ class TimerEditViewController: UIViewController {
 
         updateLabelsWithMinutes(numberOfMinutes, seconds: numberOfSeconds)
         minutesSlider.value = Float(numberOfMinutes)
-        secondsSlider.value = Float(numberOfSeconds)        
+        secondsSlider.value = Float(numberOfSeconds)
+        
+        switch timerModel.type {
+        case .Coffee:
+            typeSegmentControl.selectedSegmentIndex = 0
+        case .Tea:
+            typeSegmentControl.selectedSegmentIndex = 1
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +53,13 @@ class TimerEditViewController: UIViewController {
     @IBAction func doneButtonPressed(sender: AnyObject) {
         timerModel.name = nameField.text
         timerModel.duration = Int(minutesSlider.value)*60 + Int(secondsSlider.value)
+        
+        if typeSegmentControl.selectedSegmentIndex == 0 {
+            timerModel.type = .Coffee
+        } else { // Must be 1
+            timerModel.type = .Tea
+        }
+        
         delegate?.timerEditViewControllerDidSave(self)
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
 

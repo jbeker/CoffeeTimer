@@ -17,6 +17,7 @@
 		55CD03CB1B15ED5200E4684F /* TimerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD03CA1B15ED5200E4684F /* TimerListTableViewController.swift */; };
 		55DB43391AF8052300315C59 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB43381AF8052300315C59 /* TimerModel.swift */; };
 		55DFF5F51B061EA300A1572D /* TimerEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFF5F41B061EA300A1572D /* TimerEditViewController.swift */; };
+		55F6EA131B3831640022AE98 /* Array+moveFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F6EA121B3831640022AE98 /* Array+moveFrom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		55CD03CA1B15ED5200E4684F /* TimerListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerListTableViewController.swift; sourceTree = "<group>"; };
 		55DB43381AF8052300315C59 /* TimerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		55DFF5F41B061EA300A1572D /* TimerEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerEditViewController.swift; sourceTree = "<group>"; };
+		55F6EA121B3831640022AE98 /* Array+moveFrom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+moveFrom.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				55AC5C601AE13BC1007089BD /* Images.xcassets */,
 				55AC5C621AE13BC1007089BD /* LaunchScreen.xib */,
 				55AC5C571AE13BC1007089BD /* Supporting Files */,
+				55F6EA121B3831640022AE98 /* Array+moveFrom.swift */,
 			);
 			path = CoffeeTimer;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				55510FBA1B03AB0800A96938 /* TimerDetailViewController.swift in Sources */,
 				55AC5C5C1AE13BC1007089BD /* ViewController.swift in Sources */,
 				55AC5C5A1AE13BC1007089BD /* AppDelegate.swift in Sources */,
+				55F6EA131B3831640022AE98 /* Array+moveFrom.swift in Sources */,
 				55CD03CB1B15ED5200E4684F /* TimerListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

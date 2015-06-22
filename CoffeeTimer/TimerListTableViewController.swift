@@ -12,6 +12,12 @@ class TimerListTableViewController: UITableViewController, TimerEditViewControll
     var coffeeTimers: [TimerModel]!
     var teaTimers: [TimerModel]!
     
+    enum TableSection: Int {
+        case Coffee = 0
+        case Tea
+        case NumberOfSections
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         coffeeTimers = [
@@ -36,14 +42,14 @@ class TimerListTableViewController: UITableViewController, TimerEditViewControll
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return TableSection.NumberOfSections.rawValue
 
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        if section == TableSection.Coffee.rawValue {
             return coffeeTimers.count
-        } else if section == 1 {
+        } else if section == TableSection.Tea.rawValue {
             return teaTimers.count
         } else {
             return 0
@@ -51,23 +57,17 @@ class TimerListTableViewController: UITableViewController, TimerEditViewControll
 
     }
     override func tableView(tableView: UITableView,cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         
-        let timerModel: TimerModel = {
-            if indexPath.section == 0 {
-                return self.coffeeTimers[indexPath.row]
-            } else {
-                return self.teaTimers[indexPath.row]
-            }
-        }()
-        
+        let timerModel = timerModelFromIndexPath(indexPath)
         // Configure the cell...
         cell.textLabel?.text = timerModel.name
         return cell
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
+        if section == TableSection.Coffee.rawValue {
             return "Coffee"
         } else {
             return "Tea"
@@ -77,14 +77,7 @@ class TimerListTableViewController: UITableViewController, TimerEditViewControll
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let cell = sender as? UITableViewCell {
             let indexPath = tableView.indexPathForCell(cell)!
-            let timerModel: TimerModel = {
-                if indexPath.section == 0 {
-                    return self.coffeeTimers[indexPath.row]
-                } else {
-                    return self.teaTimers[indexPath.row]
-                }
-            }()
-        
+            let timerModel = timerModelFromIndexPath(indexPath)
             if segue.identifier == "pushDetail" {
                 if let detailViewController = segue.destinationViewController as? TimerDetailViewController {
                     detailViewController.timerModel = timerModel
@@ -118,12 +111,72 @@ class TimerListTableViewController: UITableViewController, TimerEditViewControll
         return true
     }
     
+    // MARK: Tableview delegate functions
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView.editing {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
             performSegueWithIdentifier("editDetail", sender: cell)
         }
     }
+    
+    override func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject) -> Bool {
+        if action == "copy:" {
+            return true
+        }
+        return false
+    }
+    
+    override func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!) {
+            let timerModel = timerModelFromIndexPath(indexPath)
+            let pasteboard = UIPasteboard.generalPasteboard()
+            pasteboard.string = timerModel.name
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the data from the array.
+            if indexPath.section == TableSection.Coffee.rawValue {
+                coffeeTimers.removeAtIndex(indexPath.row)
+            } else { // Must be 1
+                teaTimers.removeAtIndex(indexPath.row)
+            }
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+    }
+    
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        if sourceIndexPath.section == TableSection.Coffee.rawValue {
+                coffeeTimers.moveFrom(sourceIndexPath.row, toDestination: destinationIndexPath.row)
+            } else { // Must be 1
+                teaTimers.moveFrom(sourceIndexPath.row, toDestination: destinationIndexPath.row)
+        }
+    }
+    
+    override func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
+        // If the source and destination index paths are the same section,
+        // then return the proposed index path
+        if sourceIndexPath.section == proposedDestinationIndexPath.section {
+            return proposedDestinationIndexPath
+        }
+        // The sections are different, which we want to disallow.
+        if sourceIndexPath.section == TableSection.Coffee.rawValue {
+            // This is coming from the coffee section, so return
+            // the last index path in that section.
+            return NSIndexPath(forItem: coffeeTimers.count - 1, inSection: TableSection.Coffee.rawValue)
+        } else { // Must be 1
+            // This is coming from the tea section, so return
+            // the first index path in that section.
+            return NSIndexPath(forItem: 0, inSection: TableSection.Tea.rawValue)
+        }
+    }
+    
+    
+    // MARK: Delegate Functions
     
     func timerEditViewControllerDidCancel(viewController: TimerEditViewController) {
         
@@ -151,5 +204,14 @@ class TimerListTableViewController: UITableViewController, TimerEditViewControll
             }) }
         }
     
+    // MARK: Utility functions
+    
+    private func timerModelFromIndexPath(indexPath: NSIndexPath) -> TimerModel {
+                if indexPath.section == TableSection.Coffee.rawValue {
+                return coffeeTimers[indexPath.row]
+            } else {
+                return teaTimers[indexPath.row]
+                }
+    }
 
 }
