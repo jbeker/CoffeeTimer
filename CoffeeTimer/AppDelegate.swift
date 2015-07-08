@@ -19,6 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("Application has launched")
         return true
     }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        println("Application received local notification.")
+        let alertController = UIAlertController(title: notification.alertTitle,
+            message: notification.alertBody,
+            preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(okAction)
+        
+        window!.rootViewController!.presentViewController(alertController, animated: true, completion: nil)
+    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

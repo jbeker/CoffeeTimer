@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cCy-zO-Edw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cCy-zO-Edw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -183,16 +183,38 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer not started." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMZ-PC-NP9">
+                                <rect key="frame" x="34" y="101" width="542" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byI-rA-GQF">
+                                <rect key="frame" x="277" y="130" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startStopPressed:" destination="op3-ui-fBo" eventType="touchUpInside" id="kBN-h0-8KT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NKN-EI-Cxe" firstAttribute="top" secondItem="8Zz-3A-5z3" secondAttribute="bottom" constant="8" symbolic="YES" id="0Nw-SQ-OBV"/>
+                            <constraint firstAttribute="centerX" secondItem="byI-rA-GQF" secondAttribute="centerX" id="Nx9-G6-qtv"/>
+                            <constraint firstItem="byI-rA-GQF" firstAttribute="top" secondItem="oMZ-PC-NP9" secondAttribute="bottom" constant="8" id="TyX-Vu-vjN"/>
+                            <constraint firstItem="oMZ-PC-NP9" firstAttribute="leading" secondItem="eJT-Oe-Gnv" secondAttribute="leadingMargin" constant="18" id="Z12-z0-FZy"/>
+                            <constraint firstItem="oMZ-PC-NP9" firstAttribute="top" secondItem="NKN-EI-Cxe" secondAttribute="bottom" constant="8" id="cfF-Rh-nPq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oMZ-PC-NP9" secondAttribute="trailing" constant="8" id="eO0-sE-vaR"/>
                             <constraint firstItem="NKN-EI-Cxe" firstAttribute="leading" secondItem="eJT-Oe-Gnv" secondAttribute="leadingMargin" constant="18" id="jqe-Nf-ujO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NKN-EI-Cxe" secondAttribute="trailing" constant="18" id="zBz-ZH-yD1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countDownLabel" destination="oMZ-PC-NP9" id="00L-31-e0l"/>
                         <outlet property="durationLabel" destination="NKN-EI-Cxe" id="vyF-Zw-Pqe"/>
+                        <outlet property="timerStartStopButton" destination="byI-rA-GQF" id="zNG-JA-bAf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SE0-Cm-HNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
