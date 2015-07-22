@@ -46,7 +46,7 @@ class TimerDetailViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         // Request local notifications and set up local notification
-        let settings = UIUserNotificationSettings(forTypes: (.Alert | .Sound),
+        let settings = UIUserNotificationSettings(forTypes: ([.Alert, .Sound]),
         categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
     }
@@ -60,7 +60,7 @@ class TimerDetailViewController: UIViewController {
     }
 
     @IBAction func startStopPressed(sender: AnyObject) {
-        if let runningTimer = self.timer {
+        if let _ = self.timer {
             self.stopTimer(.Cancelled)
         } else {
             self.startTimer()
@@ -91,7 +91,7 @@ class TimerDetailViewController: UIViewController {
     }
     
     func stopTimer(reason: StopTimerReason) {
-        if let runningTimer = self.timer {
+        if let _ = self.timer {
             // stop timer
             self.navigationItem.setHidesBackButton(false, animated: true)
             self.countDownLabel.text = reason.message()

@@ -58,7 +58,7 @@ class TimerListTableViewController: UITableViewController, TimerEditViewControll
     }
     override func tableView(tableView: UITableView,cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
         
         let timerModel = timerModelFromIndexPath(indexPath)
         // Configure the cell...
@@ -89,7 +89,7 @@ class TimerListTableViewController: UITableViewController, TimerEditViewControll
                         editViewController.delegate = self
                 }
             }
-        } else if let addButton = sender as? UIBarButtonItem {
+        } else if let _ = sender as? UIBarButtonItem {
             if segue.identifier == "newTimer" {
             if let navigationController = segue.destinationViewController as? UINavigationController,
                 editViewController = navigationController.topViewController as? TimerEditViewController {
@@ -102,7 +102,7 @@ class TimerListTableViewController: UITableViewController, TimerEditViewControll
     }
 
 
-    override func shouldPerformSegueWithIdentifier(identifier: String?,sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String,sender: AnyObject?) -> Bool {
         if identifier == "pushDetail" {
             if tableView.editing {
                 return false
@@ -124,14 +124,14 @@ class TimerListTableViewController: UITableViewController, TimerEditViewControll
         return true
     }
     
-    override func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject) -> Bool {
+    override func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
         if action == "copy:" {
             return true
         }
         return false
     }
     
-    override func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!) {
+    override func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
             let timerModel = timerModelFromIndexPath(indexPath)
             let pasteboard = UIPasteboard.generalPasteboard()
             pasteboard.string = timerModel.name
@@ -186,7 +186,7 @@ class TimerListTableViewController: UITableViewController, TimerEditViewControll
         let model = viewController.timerModel
         let type = model.type
         if type == .Coffee {
-            if !contains(coffeeTimers, model) {
+            if !coffeeTimers.contains(model) {
                 coffeeTimers.append(model)
             }
             teaTimers = teaTimers.filter({
@@ -194,7 +194,7 @@ class TimerListTableViewController: UITableViewController, TimerEditViewControll
                 return item != model
             })
         } else { // Type must be .Tea
-            if !contains(teaTimers, model) {
+            if !teaTimers.contains(model) {
                 teaTimers.append(model)
             }
         

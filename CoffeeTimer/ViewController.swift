@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     var timerModel: TimerModel! {
         willSet(newModel) {
-            println("About to change model to \(newModel)")
+            print("About to change model to \(newModel)")
         }
         didSet {
             updateUI()
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("viewDidLoad")
+        print("viewDidLoad")
         title = "Root"
         setupModels()
     }
@@ -35,8 +35,8 @@ class ViewController: UIViewController {
         return false
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
     
     func setupModels() {
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println("Preparing for segue with identifier:\(segue.identifier)")
+        print("Preparing for segue with identifier:\(segue.identifier)")
         
         
         if segue.identifier == "pushDetail" {
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
             if (dest != nil) {
                 dest?.timerModel = timerModel
             } else {
-                println("WTH?!")
+                print("WTH?!")
             }
         } else if segue.identifier == "editDetail" {
             let destNav = segue.destinationViewController as? UINavigationController
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
             if (dest != nil) {
                 dest?.timerModel = timerModel
             } else {
-                println("WTH?!")
+                print("WTH?!")
             }
         }
     }
