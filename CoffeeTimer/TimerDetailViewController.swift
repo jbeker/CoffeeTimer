@@ -57,7 +57,27 @@ class TimerDetailViewController: UIViewController {
         title = timerModel.name
         
         durationLabel.text = "\(timerModel.duration / 60) min \(timerModel.duration % 60) sec"
+        
+        countDownLabel.text = "Timer not started"
+        
+        timerModel.addObserver(self, forKeyPath: "duration", options: .New, context: nil)
+        timerModel.addObserver(self, forKeyPath: "name", options: .New, context: nil)
+        
     }
+    
+    deinit {
+        timerModel.removeObserver(self, forKeyPath: "duration")
+        timerModel.removeObserver(self, forKeyPath: "name")
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == "duration" {
+            durationLabel.text = "\(timerModel.duration / 60) min \(timerModel.duration % 60) sec"
+        } else if keyPath == "name" {
+            title = timerModel.name
+        }
+    }
+    
 
     @IBAction func startStopPressed(sender: AnyObject) {
         if let _ = self.timer {
@@ -69,6 +89,7 @@ class TimerDetailViewController: UIViewController {
     
     func startTimer() {
         navigationItem.setHidesBackButton(true, animated: true)
+        navigationItem.rightBarButtonItem?.enabled = false
         timerStartStopButton.setTitle("Stop", forState: .Normal)
         timer = NSTimer.scheduledTimerWithTimeInterval(1,
             target: self,
@@ -94,6 +115,7 @@ class TimerDetailViewController: UIViewController {
         if let _ = self.timer {
             // stop timer
             self.navigationItem.setHidesBackButton(false, animated: true)
+            navigationItem.rightBarButtonItem?.enabled = true
             self.countDownLabel.text = reason.message()
             self.timerStartStopButton.setTitle("Start", forState: .Normal)
             
@@ -117,14 +139,15 @@ class TimerDetailViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "editDetail" {
+        let navigationController = segue.destinationViewController
+        as! UINavigationController
+        let editViewController = navigationController.topViewController
+        as! TimerEditViewController
+        editViewController.timerModel = timerModel
+        }
     }
-    */
 
 }

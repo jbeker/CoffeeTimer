@@ -17,8 +17,8 @@ class TimerModel: NSObject {
         case Tea
     }
     
-    var name = ""
-    var duration = 0
+    dynamic var name = ""
+    dynamic var duration = 0
     var type = TimerType.Coffee
 
     init(name: String, duration: Int, type: TimerType)
